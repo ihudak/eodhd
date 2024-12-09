@@ -1,0 +1,60 @@
+PATH
+  remote: .
+  specs:
+    eodhd (0.0.1)
+      httparty (~> 0.22.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.8.7)
+      public_suffix (>= 2.0.2, < 7.0)
+    ansi (1.5.0)
+    bigdecimal (3.1.8)
+    builder (3.3.0)
+    crack (1.0.0)
+      bigdecimal
+      rexml
+    csv (3.3.0)
+    guard-compat (1.2.1)
+    guard-minitest (2.4.6)
+      guard-compat (~> 1.2)
+      minitest (>= 3.0)
+    hashdiff (1.1.2)
+    httparty (0.22.0)
+      csv
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
+    mini_mime (1.1.5)
+    minitest (5.25.4)
+    minitest-reporters (1.7.1)
+      ansi
+      builder
+      minitest (>= 5.0)
+      ruby-progressbar
+    multi_xml (0.7.1)
+      bigdecimal (~> 3.1)
+    public_suffix (6.0.1)
+    rake (13.2.1)
+    rexml (3.3.9)
+    ruby-progressbar (1.13.0)
+    webmock (3.24.0)
+      addressable (>= 2.8.0)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
+
+PLATFORMS
+  ruby
+  x86_64-linux
+
+DEPENDENCIES
+  bundler (~> 2.5)
+  eodhd!
+  guard-minitest (~> 2.4.6)
+  minitest (~> 5.25.4)
+  minitest-reporters (~> 1.7.1)
+  rake (~> 13.2.1)
+  webmock (~> 3.24.0)
+
+BUNDLED WITH
+   2.5.16
