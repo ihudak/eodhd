@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
-
+  spec.files         = ["lib/*", "test/**/*", "eodhd.gemspec", "Gemfile", "LICENSE", "README.md"].map {|f| `git ls-files #{f}`.split("\n") }.to_a.flatten
   spec.add_dependency "httparty",                       "~> 0.22.0"
 
   spec.add_development_dependency "bundler",            "~> 2.5"
