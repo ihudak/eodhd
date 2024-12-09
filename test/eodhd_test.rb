@@ -18,6 +18,10 @@ class EodhdTest < Minitest::Test
   end
 
   def test_without_token
+    Eodhd.configure do |c|
+      c.api_key = nil
+    end
+
     error = assert_raises(Eodhd::Error) do
       Eodhd::Client.new(isin: 'IE00B5BMR087', currency: 'EUR').price
     end
