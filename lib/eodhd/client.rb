@@ -13,12 +13,14 @@ module Eodhd
       @currency = currency
       @country = country
       @data = @price = @date = @name = nil # if nil then we haven't called eodhd yet
+      @valid = false
+      self.request
     end
     attr_reader :isin, :currency, :country
 
     def price
       return @price unless @price.nil?
-      self.request if  @data.nil?
+      return nil unless valid?
 
       price = 0.0
       count = 0
@@ -39,7 +41,7 @@ module Eodhd
 
     def date
       return @date unless @date.nil?
-      self.request if  @data.nil?
+      return nil unless valid?
 
       date = nil
 
@@ -55,7 +57,7 @@ module Eodhd
 
     def name
       return @name unless @name.nil?
-      self.request if  @data.nil?
+      return nil unless valid?
 
       @data.each do |r|
         if r['Currency'] == @currency && r['ISIN'] == @isin && (@country.nil? || r['Country'] == @country)
@@ -64,6 +66,10 @@ module Eodhd
         end
       end
       @name
+    end
+
+    def valid?
+      @valid
     end
 
     private
@@ -98,6 +104,7 @@ module Eodhd
 
       raise Eodhd::Error.new(error_msg) unless error_msg.nil?
       @data = data
+      @valid = true
       data
     end
 
