@@ -14,7 +14,7 @@ module Eodhd
       @country = country
       @data = @price = @date = @name = nil # if nil then we haven't called eodhd yet
       @valid = false
-      self.request if @key.length < 20 # the key is certainly invalid
+      self.request if @key.length > 20 # the key is certainly invalid
     end
     attr_reader :isin, :currency, :country
 
